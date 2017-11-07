@@ -13,6 +13,9 @@ public class Weapon extends Amunition {
         this.type = type;
     }
 
+    public Weapon() {
+    }
+
     public Weapon(int cost, double weight, String type) {
         this.cost = cost;
         this.weight = weight;

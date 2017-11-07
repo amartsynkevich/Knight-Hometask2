@@ -3,7 +3,7 @@ package com.company.amunition;
 import java.lang.String;
 
 public class Helmet extends Amunition {
-    String material;
+    private String material;
 
     public String getMaterial() {
         return material;
@@ -11,6 +11,9 @@ public class Helmet extends Amunition {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public Helmet() {
     }
 
     public Helmet(int cost, double weight, String material) {

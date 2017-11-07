@@ -13,6 +13,9 @@ public class Shield extends Amunition {
         this.form = form;
     }
 
+    public Shield() {
+    }
+
     public Shield(int cost, double weight, String form) {
         this.cost = cost;
         this.weight = weight;

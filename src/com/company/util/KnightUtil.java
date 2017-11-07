@@ -1,21 +1,30 @@
 package com.company.util;
 
 import com.company.amunition.Amunition;
+import com.company.exception.CostNullException;
+import com.company.exception.EmptyAmunitionException;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
 public class KnightUtil {
-    public double getKnightAmunitionCost(List<Amunition> amunitionList) {
+    public double getKnightAmunitionCost(List<Amunition> amunitionList) throws CostNullException {
         double totalCost=0;
         for (int i=0; i<amunitionList.size(); i++) {
+            if (amunitionList.get(i).getCost() == 0) {
+                throw new CostNullException("Cost is not defined", new NullPointerException());
+            }
             totalCost += amunitionList.get(i).getCost();
         }
         return totalCost;
     }
 
-    public void sortAmunitionByCost(List<Amunition> amunitionList){
+    public void sortAmunitionByCost(List<Amunition> amunitionList) throws EmptyAmunitionException {
+        if (amunitionList.isEmpty()){
+            throw new EmptyAmunitionException("Knight has no amunition");
+        }
         Comparator<Amunition> comparatorCost = new Comparator<Amunition>() {
             public int compare(Amunition objFirst, Amunition objSecond) {
                 return Double.compare(objFirst.getCost(), objSecond.getCost());
